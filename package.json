@@ -1,9 +1,9 @@
 {
-  "name": "helka-website",
+  "name": "realtime-chat-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
