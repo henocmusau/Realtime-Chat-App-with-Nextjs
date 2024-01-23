@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-
-}
+@media (prefers-color-scheme: dark) {}
 
 * {
   box-sizing: border-box;
@@ -20,6 +18,11 @@ body {
 
 @media (prefers-color-scheme: dark) {
   html {
-/*    color-scheme: dark;*/
+    /*    color-scheme: dark;*/
   }
+}
+
+
+.primaryBtn {
+  @apply bg-indigo-600 hover:bg-indigo-500 duration-200 rounded-lg px-4 py-3 my-4 text-white;
 }
