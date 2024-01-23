@@ -2,7 +2,7 @@
 import React, { LegacyRef, useEffect, useRef, useState } from 'react'
 
 export default function useVideo() {
-    const videoRef = useRef<LegacyRef<HTMLVideoElement> | undefined>()
+    const videoRef = useRef<HTMLVideoElement>()
     const [error, setError] = useState({ state: false, msg: '' })
     // const [stream, setStream] = useState<MediaStream | null>(null)
 

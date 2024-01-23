@@ -7,7 +7,7 @@ export default function useWebcam() {
     // const [stream, setStream] = useState<MediaStream | null>(null)
 
     useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
             .then((currentStream) => {
                 // setStream(currentStream)
                 if (videoRef.current) videoRef.current.srcObject = currentStream
