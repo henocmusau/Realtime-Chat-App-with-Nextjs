@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "realtime-chat-app",
+=======
+  "name": "realtime-chat-app-nextjs",
+>>>>>>> videoPlayer
   "version": "0.1.0",
   "private": true,
   "scripts": {

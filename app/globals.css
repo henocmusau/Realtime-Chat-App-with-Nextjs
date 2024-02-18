@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-
-}
+@media (prefers-color-scheme: dark) {}
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  word-wrap: break-word;
 }
 
 html,
@@ -20,6 +19,15 @@ body {
 
 @media (prefers-color-scheme: dark) {
   html {
-/*    color-scheme: dark;*/
+    /*    color-scheme: dark;*/
   }
+}
+
+
+.primaryBtn {
+  @apply bg-indigo-600 hover:bg-indigo-500 duration-200 rounded-lg px-4 py-3 my-4 text-white;
+}
+
+.textInput {
+  @apply w-full duration-150 bg-indigo-950/10 focus:bg-indigo-800/10 hover:bg-indigo-800/10 rounded-lg py-2 px-4 placeholder:text-slate-600 focus:outline-none;
 }
