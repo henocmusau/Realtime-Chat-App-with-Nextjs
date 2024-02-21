@@ -19,7 +19,16 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-image: url('../assets/images/bg1.svg');
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  background-position: center;
+  /* z-index: 1; */
+  @apply animate-gradient transition-all;
 }
+
+body::before {}
 
 @media (prefers-color-scheme: dark) {
   html {

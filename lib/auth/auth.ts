@@ -3,11 +3,15 @@ import GithubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 
+import { MongoDBAdapter } from "@auth/mongodb-adapter"
+import clientPromise from "@/lib/mongodb"
+
 export const authOptions: NextAuthOptions = {
     // Secret for Next-auth, without this JWT encryption/decryption won't work
     secret: process.env.NEXTAUTH_SECRET,
+    // adapter: MongoDBAdapter(clientPromise),
     // session: {
-    //     strategy: 'jwt'
+    //     strategy: 'database'
     // },
     pages: {
         signIn: '/login',

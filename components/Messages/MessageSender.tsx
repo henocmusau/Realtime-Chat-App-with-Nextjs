@@ -16,6 +16,7 @@ export default function MessageSender({ handlePrevius }: Props) {
             className='flex items-center mb-5 last:mb-0' onClick={() => handlePrevius(1)}>
             <Image
                 src={user}
+                placeholder='blur'
                 className='w-12 h-12 mr-4 rounded-full object-cover hover:contrast-125 duration-150'
                 alt='User Profile picture' />
             <div>
