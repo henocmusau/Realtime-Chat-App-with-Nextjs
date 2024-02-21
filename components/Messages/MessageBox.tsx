@@ -1,8 +1,10 @@
 'use client'
 
-import React, { LegacyRef, RefObject, useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import MessageBoxItem from './MessageBoxItem'
 import { useFormStatus } from 'react-dom'
+import { LogOut } from 'lucide-react'
+import { signOut } from 'next-auth/react'
 
 interface Props {
     isActive: boolean
@@ -25,8 +27,7 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
 
     function submitForm(formData: FormData) {
         const msg = formData.get('message') as string
-        // const message = formRef?.current?.value?.toString()
-        // console.log(message)
+
         if (!msg || msg.length <= 0) return
         addMessages(msg)
         inputRef.current.value = ''
@@ -39,7 +40,11 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
                     className='p-3 rounded-lg bg-indigo-800/20 hover:bg-indigo-700/20 duration-150 w-8 h-8 flex md:hidden items-center justify-center'
                     onClick={() => handlePrevius(0)}
                 >{'<'}</button>
-                <div>XXX</div>
+                <div className='w-full'>
+                    <button className='float-right' onClick={() => signOut()}>
+                        <LogOut className=' w-6' />
+                    </button>
+                </div>
             </header>
 
             <div className='grow h-full overflow-y-auto flex flex-col w-full'>
@@ -72,7 +77,6 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
                     {pending ? '...' : 'Send'}
                 </button>
             </form>
-
         </section>
     )
 }

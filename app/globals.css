@@ -32,6 +32,18 @@ body {
   @apply bg-indigo-600 hover:bg-indigo-500 duration-200 rounded-lg px-4 py-3 my-4 text-white;
 }
 
+.googleBtn {
+  @apply w-full relative duration-200 rounded-lg px-4 py-3 my-4 text-white border border-indigo-500 hover:bg-indigo-600/20;
+}
+
 .textInput {
-  @apply w-full duration-150 bg-indigo-950/10 focus:bg-indigo-800/10 hover:bg-indigo-800/10 rounded-lg py-2 px-4 placeholder:text-slate-600 focus:outline-none;
+  @apply w-full duration-150 bg-indigo-950/10 focus:bg-indigo-800/10 hover:bg-indigo-800/10 rounded-lg py-2 px-4 placeholder:text-slate-400 focus:outline-none;
+}
+
+.loginInput {
+  @apply w-full duration-150 bg-indigo-950/30 focus:bg-indigo-600/30 hover:bg-indigo-600/30 rounded-lg py-2 pr-4 pl-8 placeholder:text-slate-400 focus:outline-none;
+}
+
+.loginSvg {
+  @apply absolute left-2 w-4 text-slate-500;
 }
