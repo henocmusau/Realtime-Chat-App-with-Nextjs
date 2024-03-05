@@ -16,7 +16,7 @@ export default async function Login() {
     if (session?.user) redirect('/')
 
     return (
-        <main className='flex flex-col bg-gray-950/70 max-w-max items-center justify-center text-left p-8 rounded-xl'>
+        <main className='flex flex-col bg-gray-950/60 backdrop-blur max-w-max items-center justify-center text-left p-8 rounded-xl'>
             <LoginForm />
         </main>
     )
