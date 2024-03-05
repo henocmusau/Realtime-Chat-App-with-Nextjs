@@ -6,13 +6,13 @@ type Props = {
     name: string
     label: string
     inputRef: RefObject<HTMLInputElement>
-    icon: React.ReactNode
+    icon: LucideIcon
 }
 
-export default function InputField({ type, name, label, inputRef, icon }: Props) {
+export default function InputField({ type, name, label, inputRef, icon: Icon }: Props) {
     return (
         <div className='relative w-full flex items-center'>
-            {icon}
+            {Icon ? <Icon className='loginSvg' /> : null}
             <input
                 type={type || 'text'}
                 name={name}

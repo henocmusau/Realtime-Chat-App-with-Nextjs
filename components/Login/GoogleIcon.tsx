@@ -3,7 +3,7 @@ import React from 'react'
 export default function GoogleIcon() {
     return (
         <>
-            <svg className='absolute left-4 w-4 h-4' width="800px" height="800px" viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+            <svg className='absolute top-0 left-4 my-auto w-4 h-full' width="800px" height="800px" viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 
                 <title>Google-color</title>
                 <desc>Created with Sketch.</desc>

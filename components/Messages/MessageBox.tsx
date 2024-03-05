@@ -64,7 +64,7 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
 
             <form action={submitForm} className='gap-x-3 flex w-full bg-gray-950 p-4 md:pb-0'>
                 <textarea
-                    className='textInput rounded-lg h-12'
+                    className='textInput resize-none rounded-lg h-12'
                     placeholder='Type your message'
                     name='message'
                     ref={inputRef}
