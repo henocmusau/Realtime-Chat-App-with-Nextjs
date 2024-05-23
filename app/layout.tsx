@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
-// import { Inter } from 'next/font/google'
 import './globals.css'
-
-// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'ChatApp, Talk with the world !',
@@ -16,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='min-h-[100vh] max-h-[100vh] box-border bg-slate-950 flex flex-col items-center justify-center text-black'>{children}</body>
+      <body className='min-h-[100vh] max-h-[100vh] box-border bg-slate-950 flex flex-col items-center justify-center text-black'>
+        {children}
+      </body>
     </html>
   )
 }

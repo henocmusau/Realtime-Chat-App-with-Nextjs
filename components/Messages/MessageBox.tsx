@@ -3,8 +3,8 @@
 import React, { useCallback, useRef } from 'react'
 import MessageBoxItem from './MessageBoxItem'
 import { useFormStatus } from 'react-dom'
-import { LogOut } from 'lucide-react'
-import { signOut } from 'next-auth/react'
+import { Send } from 'lucide-react'
+import SignOutButton from './SignOutButton'
 
 interface Props {
     isActive: boolean
@@ -41,9 +41,8 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
                     onClick={() => handlePrevius(0)}
                 >{'<'}</button>
                 <div className='w-full'>
-                    <button className='float-right' onClick={() => signOut()}>
-                        <LogOut className=' w-6' />
-                    </button>
+                    {/* <button className='float-right' onClick={() => signOut()}> */}
+                    <SignOutButton />
                 </div>
             </header>
 
@@ -73,8 +72,8 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
                 <button
                     type='submit'
                     disabled={pending}
-                    className='text-slate-100 bg-indigo-800 p-4 rounded-full'>
-                    {pending ? '...' : 'Send'}
+                    className='text-slate-100 bg-indigo-800/40 disabled:bg-slate-600/30 duration-150 p-4 rounded-full'>
+                    <Send className='text-inherit stroke-slate-400 h-5 w-5' />
                 </button>
             </form>
         </section>

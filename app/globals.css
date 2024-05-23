@@ -60,3 +60,9 @@ body::before {}
 .separator {
   @apply my-3 w-full text-slate-200 text-center relative before:absolute before:left-0 before:bg-slate-500 before:top-1/2 before:w-[40%] before:h-[1px] after:absolute after:bg-slate-500 after:top-1/2 after:w-[40%] after:h-[1px] after:right-0;
 }
+
+
+
+.title__1 {
+  @apply text-3xl mb-4 text-center;
+}

@@ -5,7 +5,7 @@ type Props = {
     type?: 'text' | 'password' | 'search'
     name: string
     label: string
-    inputRef: RefObject<HTMLInputElement>
+    inputRef?: RefObject<HTMLInputElement>
     icon: LucideIcon
 }
 

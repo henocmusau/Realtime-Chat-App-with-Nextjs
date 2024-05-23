@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function PrimaryButton() {
+export default function PrimaryButton({ text }: { text?: string }) {
     return (
-        <button type='submit' className='primaryBtn'>Sign In</button>
+        <button className='primaryBtn'>{text ?? 'Sign In'}</button>
     )
 }

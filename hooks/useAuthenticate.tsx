@@ -23,8 +23,8 @@ export default function useAuthenticate() {
             password,
         })
             .then((response) => {
-                console.log(response);
-                router.replace('/');
+                console.log('Successfully logged in');
+                router.push('/');
             })
             .catch((error) => {
                 console.log(error);
