@@ -2,38 +2,35 @@
 import React, { useRef } from 'react'
 import { useRouter } from 'next/navigation';
 import { signIn } from "next-auth/react"
+import { createClient } from '@/lib/supabase/client';
+import { signOut } from '@/app/(auth)/actions';
 
 
 export default function useAuthenticate() {
     const usernameRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
+
+    const supabase = createClient()
     const router = useRouter()
 
-    const handleConnect = async (e: React.SyntheticEvent) => {
-        e.preventDefault()
-        const username = usernameRef.current?.value
-        const password = passwordRef.current?.value
-
-        if (!username || !password || username.length < 4 || password.length < 4) return
-        console.log('credentials', username, password)
-
-        await signIn('credentials', {
-            //   redirect: false,
-            username,
-            password,
+    const signInWithGoogle = async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `http://localhost:4000/auth/callback`,
+            },
         })
-            .then((response) => {
-                console.log('Successfully logged in');
-                router.push('/');
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+        router.push('/')
+    }
+
+    const handleSignOut = async () => {
+        await signOut()
+            .then(console.log)
+            .catch(console.error)
+    }
 
     return {
-        usernameRef,
-        passwordRef,
-        handleConnect
+        signInWithGoogle,
+        handleSignOut
     }
 }

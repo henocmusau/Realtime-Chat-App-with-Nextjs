@@ -6,10 +6,11 @@ type Props = {
     name: string
     label: string
     inputRef?: RefObject<HTMLInputElement>
-    icon: LucideIcon
+    icon?: LucideIcon
+    otherStyles?: string
 }
 
-export default function InputField({ type, name, label, inputRef, icon: Icon }: Props) {
+export default function InputField({ type, name, label, inputRef, icon: Icon, otherStyles }: Props) {
     return (
         <div className='relative w-full flex items-center'>
             {Icon ? <Icon className='loginSvg' /> : null}
@@ -19,7 +20,7 @@ export default function InputField({ type, name, label, inputRef, icon: Icon }: 
                 id={name}
                 ref={inputRef}
                 placeholder={label}
-                className='loginInput'
+                className={'loginInput ' + otherStyles}
                 autoComplete='off'
             />
         </div>

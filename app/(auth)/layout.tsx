@@ -15,12 +15,8 @@ export default async function AuthLayout({
 
     if (user) redirect('/')
     return (
-        <html lang="en">
-            <body className='min-h-[100vh] max-h-[100vh] box-border bg-slate-950 flex flex-col items-center justify-center text-black'>
-                <main className='flex flex-col bg-gray-950/60 backdrop-blur max-w-max items-center justify-center text-left p-8 rounded-xl'>
-                    {children}
-                </main>
-            </body>
-        </html>
+        <main className='flex flex-col bg-gray-950/60 backdrop-blur max-w-max items-center justify-center text-left p-8 rounded-xl'>
+            {children}
+        </main>
     )
 }

@@ -50,7 +50,7 @@ body::before {}
 }
 
 .loginInput {
-  @apply w-full duration-150 bg-indigo-950/30 focus:bg-indigo-600/30 hover:bg-indigo-600/30 rounded-lg py-2 pr-4 pl-8 placeholder:text-slate-400 focus:outline-none;
+  @apply w-full duration-150 bg-indigo-700/20 focus:bg-indigo-600/30 hover:bg-indigo-600/30 rounded-lg py-2 pr-4 pl-8 placeholder:text-slate-400 focus:outline-none;
 }
 
 .loginSvg {

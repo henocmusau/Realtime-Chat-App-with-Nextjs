@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useCallback, useRef } from 'react'
+import React, { FormEvent, useCallback, useRef } from 'react'
 import MessageBoxItem from './MessageBoxItem'
 import { useFormStatus } from 'react-dom'
 import { Send } from 'lucide-react'
 import SignOutButton from './SignOutButton'
+import InputField from '../Login/InputField'
 
 interface Props {
     isActive: boolean
@@ -25,8 +26,10 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
     const activeStyle = defaultStyle + ' flex flex-col'
     const inactiveStyle = defaultStyle + ' collapse translate-x-full md:translate-x-0 md:visible md:flex md:flex-col'
 
-    function submitForm(formData: FormData) {
-        const msg = formData.get('message') as string
+    function submitForm(e: FormEvent) {
+        e.preventDefault()
+        // const msg = formData.get('message') as string
+        const msg = inputRef.current.value
 
         if (!msg || msg.length <= 0) return
         addMessages(msg)
@@ -61,13 +64,13 @@ export default function MessageBox({ isActive, handlePrevius, addMessages, messa
                 }
             </div>
 
-            <form action={submitForm} className='gap-x-3 flex w-full bg-gray-950 p-4 md:pb-0'>
-                <textarea
-                    className='textInput resize-none rounded-lg h-12'
-                    placeholder='Type your message'
+            <form onSubmit={submitForm} className='gap-x-3 flex w-full bg-gray-950 p-4 md:pb-0'>
+                <InputField
+                    otherStyles='textInput resize-none w-full mx-0 rounded-lg h-12'
+                    label='Type your message'
                     name='message'
-                    ref={inputRef}
-                ></textarea>
+                    inputRef={inputRef}
+                />
 
                 <button
                     type='submit'
