@@ -6,9 +6,9 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as AdminClient } from '@supabase/supabase-js'
 
-const supabase = createClient()
 
 export async function login(formData: FormData) {
+    const supabase = createClient()
 
     const data = {
         email: formData.get('username') as string,
@@ -26,6 +26,7 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
+    const supabase = createClient()
 
     const data = {
         email: formData.get('username') as string,
@@ -43,6 +44,7 @@ export async function signup(formData: FormData) {
 }
 
 export async function signOut() {
+    const supabase = createClient()
 
     const { error } = await supabase.auth.signOut()
     if (error) {
@@ -54,11 +56,12 @@ export async function signOut() {
 }
 
 export async function signInWithGoogle() {
+    const supabase = createClient()
 
     const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: `http://localhost:4000/auth/callback`,
+            redirectTo: `/auth/callback`,
         },
     })
 
@@ -72,12 +75,15 @@ export async function signInWithGoogle() {
 
 
 export async function getUser() {
+    const supabase = createClient()
 
     const { data: { user }, error } = await supabase.auth.getUser()
 
     if (error) {
-        throw new Error(error.message)
+        redirect(`/error?msg=${error.message}`)
     }
+
+    if (!user) return null
 
     return user
 }

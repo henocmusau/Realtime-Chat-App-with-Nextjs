@@ -36,7 +36,7 @@ export default function MessagesSenders({ isActive, handlePrevious, users, conne
                 />
             </header>
 
-            {filteredSenders.map((user) => {
+            {filteredSenders().map((user) => {
                 if (user.id === connectedUser.id) return null
                 return <MessageSender key={user.id} user={user.user_metadata} handlePrevious={handlePrevious} />
             })}
