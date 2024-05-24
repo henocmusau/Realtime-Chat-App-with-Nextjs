@@ -1,12 +1,12 @@
 
 import React from 'react'
 
-import { GoogleIcon, InputField, PrimaryButton as SubmitButton } from '@/components'
+import { InputField, PrimaryButton as SubmitButton } from '@/components'
 import { Lock, UserRound } from 'lucide-react'
 import { login } from '@/app/(auth)/actions'
 import GoogleAuthButton from './GoogleAuthButton'
 
-export default function LoginForm() {
+export default async function LoginForm() {
 
     return (
         <>

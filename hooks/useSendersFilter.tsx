@@ -1,6 +1,6 @@
 'use client'
 import { User } from '@supabase/supabase-js'
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useCallback, useState } from 'react'
 
 export default function useSendersFilter(initialDatas: User[]) {
     const [search, setSearch] = useState('')
@@ -14,7 +14,7 @@ export default function useSendersFilter(initialDatas: User[]) {
             )
     }
 
-    const filteredSenders = filterSenders()
+    const filteredSenders = useCallback(filterSenders, [search, initialDatas])
 
     return {
         onInputChange, filteredSenders

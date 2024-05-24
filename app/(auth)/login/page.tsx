@@ -1,9 +1,10 @@
 
-import React, { useState } from 'react'
+import React from 'react'
+
 
 import { LoginForm } from '@/components'
 
-export default async function Login() {
+export default function Login() {
 
     return (
         <>
