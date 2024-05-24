@@ -70,6 +70,18 @@ export async function signInWithGoogle() {
     redirect('/')
 }
 
+
+export async function getUser() {
+
+    const { data: { user }, error } = await supabase.auth.getUser()
+
+    if (error) {
+        throw new Error(error.message)
+    }
+
+    return user
+}
+
 export async function getUsers() {
 
     const supabase = AdminClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
