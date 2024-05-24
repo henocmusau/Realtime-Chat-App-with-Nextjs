@@ -17,7 +17,7 @@ export default function useAuthenticate() {
         await supabase.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: `http://localhost:4000/auth/callback`,
+                redirectTo: `/auth/callback`,
             },
         })
         router.push('/')

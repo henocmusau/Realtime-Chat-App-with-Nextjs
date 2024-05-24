@@ -79,11 +79,11 @@ export async function getUser() {
 
     const { data: { user }, error } = await supabase.auth.getUser()
 
-    if (error) {
-        redirect(`/error?msg=${error.message}`)
-    }
+    // if (error) {
+    //     return redirect(`/error?msg=${error.message}`)
+    // }
 
-    if (!user) return null
+    if (!user) return redirect('/login')
 
     return user
 }
