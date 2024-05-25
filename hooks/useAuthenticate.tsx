@@ -13,7 +13,9 @@ export default function useAuthenticate() {
         await supabase.auth.signInWithOAuth({
             provider: 'google',
             options: {
-                redirectTo: `http://localhost:4000/auth/callback`,
+                redirectTo: process.env.NODE_ENV === "development"
+                    ? `http://localhost:4000/auth/callback`
+                    : 'https://realtime-chat-app-with-nextjs.vercel.app/auth/callback',
             },
         })
         router.push('/')

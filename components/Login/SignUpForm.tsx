@@ -4,6 +4,7 @@ import { GoogleIcon, InputField, PrimaryButton as SubmitButton } from '@/compone
 import { Lock, UserRound } from 'lucide-react'
 import { signup } from '@/app/(auth)/actions'
 import Link from 'next/link'
+import GoogleAuthButton from './GoogleAuthButton'
 
 export default function SignUpForm() {
 
@@ -29,14 +30,8 @@ export default function SignUpForm() {
             </form>
             <p className='separator'
             >OR</p>
-            <button
-                type='button'
-                className='googleBtn'
-                formAction={signup}
-            >
-                <GoogleIcon />
-                <span className='w-full'>Sign Up with Google</span>
-            </button>
+
+            <GoogleAuthButton label='Sign Up with Google' />
 
             <p className='text-slate-200'>Already have an account ? <Link href={'/login'} className=' text-blue-400 underline'>Sign In</Link>
             </p>

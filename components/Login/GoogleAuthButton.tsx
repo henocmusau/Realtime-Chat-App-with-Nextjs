@@ -3,7 +3,7 @@ import React from 'react'
 import GoogleIcon from './GoogleIcon'
 import useAuthenticate from '@/hooks/useAuthenticate'
 
-export default function GoogleAuthButton() {
+export default function GoogleAuthButton({ label }: { label?: string }) {
     const { signInWithGoogle } = useAuthenticate()
 
     return (
@@ -13,7 +13,7 @@ export default function GoogleAuthButton() {
             onClick={() => signInWithGoogle()}
         >
             <GoogleIcon />
-            <span className='w-full'>Sign In with Google</span>
+            <span className='w-full'>{label ?? 'Sign In with Google'}</span>
         </button>
     )
 }
