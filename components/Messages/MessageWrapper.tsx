@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase/client'
 
 interface Props {
     users: User[]
-    connectedUser: User
+    connectedUser: User | null
 }
 
 

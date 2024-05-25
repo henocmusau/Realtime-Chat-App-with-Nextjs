@@ -9,7 +9,7 @@ interface Props {
     users: User[]
     isActive: boolean
     handlePrevious: (tab: string) => void
-    connectedUser: User
+    connectedUser: User | null
 }
 
 export default function MessagesSenders({ isActive, handlePrevious, users, connectedUser }: Props) {
@@ -37,7 +37,7 @@ export default function MessagesSenders({ isActive, handlePrevious, users, conne
             </header>
 
             {filteredSenders().map((user) => {
-                if (user.id === connectedUser.id) return null
+                if (user.id === connectedUser?.id) return null
                 return <MessageSender key={user.id} user={user.user_metadata} handlePrevious={handlePrevious} />
             })}
 

@@ -2,16 +2,21 @@
 import { MessageWrapper } from '@/components'
 import { redirect } from 'next/navigation'
 import { getUsers, getUser } from '@/app/(auth)/actions'
+import { createClient } from '@/lib/supabase/server'
 // import { IP } from '@/globalActions'
 
 export default async function Home() {
 
-  const user = await getUser()
-  // const ip = await IP()
   const users = await getUsers()
-  // console.log(ip)
+  const supabase = createClient()
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
   if (!user) redirect('/login')
+  // const ip = await IP()
+  // console.log(ip)
 
   return (
     <>

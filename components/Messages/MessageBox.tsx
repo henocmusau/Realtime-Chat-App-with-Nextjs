@@ -13,7 +13,7 @@ interface Props {
     handlePrevious: (tab: string) => void
     messages: string[]
     addMessages: (msg: string) => void
-    connectedUser: User
+    connectedUser: User | null
 }
 
 export default function MessageBox({ isActive, handlePrevious, addMessages, messages, connectedUser }: Props) {
@@ -46,7 +46,7 @@ export default function MessageBox({ isActive, handlePrevious, addMessages, mess
                     onClick={() => handlePrevious('dd')}
                 >{'<'}</button>
                 <div className='w-full flex justify-end items-center gap-x-4'>
-                    <h2 className=''>{`Hi, ${connectedUser.user_metadata.full_name.split(' ')[0]}`} </h2>
+                    <h2 className=''>{`Hi, ${connectedUser?.user_metadata.full_name.split(' ')[0]}`} </h2>
                     <SignOutButton />
                 </div>
             </header>

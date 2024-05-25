@@ -56,12 +56,13 @@ export async function signOut() {
 }
 
 export async function signInWithGoogle() {
+    console.log('Connecting...')
     const supabase = createClient()
 
     const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: `/auth/callback`,
+            redirectTo: `http://localhost:4000/auth/callback`,
         },
     })
 
@@ -69,24 +70,22 @@ export async function signInWithGoogle() {
         redirect('/error')
     }
 
-    revalidatePath('/', 'layout')
+    console.log('Connected')
+
+    // revalidatePath('/', 'layout')
     redirect('/')
 }
-
 
 export async function getUser() {
     const supabase = createClient()
 
     const { data: { user }, error } = await supabase.auth.getUser()
 
-    // if (error) {
-    //     return redirect(`/error?msg=${error.message}`)
-    // }
-
-    if (!user) return redirect('/login')
+    if (error) return redirect('/error?msg=' + error.message)
 
     return user
 }
+
 
 export async function getUsers() {
 

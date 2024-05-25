@@ -1,6 +1,9 @@
 import React from 'react'
+import { getUser } from '../(auth)/actions'
+import { redirect } from 'next/navigation'
 
 export default function Error({ searchParams }: { searchParams: { msg?: string } }) {
+
     return (
         <div className='bg-transparent text-white text-center max-w-md mx-auto w-full'>
             <h2 className='title__1'>Error ! Something went wrong.</h2>

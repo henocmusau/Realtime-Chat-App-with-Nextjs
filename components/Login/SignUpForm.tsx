@@ -1,23 +1,11 @@
-'use client'
 import React from 'react'
 
 import { GoogleIcon, InputField, PrimaryButton as SubmitButton } from '@/components'
 import { Lock, UserRound } from 'lucide-react'
 import { signup } from '@/app/(auth)/actions'
+import Link from 'next/link'
 
 export default function SignUpForm() {
-    // const [error, setError] = useState<any>('')
-    // const { usernameRef, passwordRef, handleConnect } = useAuthenticate()
-
-
-    // const searchParams = useSearchParams()
-    // const search = searchParams.get('error')
-
-    // useEffect(() => {
-    //     if (search) setError(JSON.stringify(search))
-    //     console.log(error)
-    // }, [search])
-
 
     return (
         <>
@@ -44,12 +32,14 @@ export default function SignUpForm() {
             <button
                 type='button'
                 className='googleBtn'
-                // onClick={() => signIn("google")}
                 formAction={signup}
             >
                 <GoogleIcon />
                 <span className='w-full'>Sign Up with Google</span>
             </button>
+
+            <p className='text-slate-200'>Already have an account ? <Link href={'/login'} className=' text-blue-400 underline'>Sign In</Link>
+            </p>
         </>
     )
 }
