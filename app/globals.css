@@ -53,6 +53,10 @@ body::before {}
   @apply w-full duration-150 bg-indigo-700/20 focus:bg-indigo-600/30 hover:bg-indigo-600/30 rounded-lg py-2 pr-4 pl-8 placeholder:text-slate-400 focus:outline-none;
 }
 
+.show {
+  @apply text-slate-400 h-5 w-5 absolute right-2;
+}
+
 .loginSvg {
   @apply absolute left-2 w-4 text-slate-500;
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { GoogleIcon, InputField, PrimaryButton as SubmitButton } from '@/components'
-import { Lock, UserRound } from 'lucide-react'
+import { InputField, PrimaryButton as SubmitButton } from '@/components'
+import { UserRound } from 'lucide-react'
 import { signup } from '@/app/(auth)/actions'
 import Link from 'next/link'
 import GoogleAuthButton from './GoogleAuthButton'
+import PasswordInput from './PasswordInput'
 
 export default function SignUpForm() {
 
@@ -19,12 +20,7 @@ export default function SignUpForm() {
                     icon={UserRound}
                 />
 
-                <InputField
-                    type='password'
-                    name='password'
-                    label='Password'
-                    icon={Lock}
-                />
+                <PasswordInput />
 
                 <SubmitButton text='Sign Up' />
             </form>

@@ -1,13 +1,13 @@
-
 import React from 'react'
 
 import { InputField, PrimaryButton as SubmitButton } from '@/components'
-import { Lock, UserRound } from 'lucide-react'
+import { UserRound } from 'lucide-react'
 import { login } from '@/app/(auth)/actions'
 import GoogleAuthButton from './GoogleAuthButton'
 import Link from 'next/link'
+import PasswordInput from './PasswordInput'
 
-export default async function LoginForm() {
+export default function LoginForm() {
 
     return (
         <>
@@ -20,12 +20,7 @@ export default async function LoginForm() {
                     icon={UserRound}
                 />
 
-                <InputField
-                    type='password'
-                    name='password'
-                    label='Password'
-                    icon={Lock}
-                />
+                <PasswordInput />
 
                 <Link href={'/reset-passwor'} className='text-blue-400 underline w-full text-right'>forget password ?</Link>
                 <SubmitButton text='Sign In' />
